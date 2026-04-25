@@ -88,8 +88,23 @@
     footer{background:var(--deep);color:rgba(250,246,240,.5);text-align:center;padding:2rem 5vw;font-size:.78rem;letter-spacing:.04em;}
     footer a{color:var(--blush);text-decoration:none;}
 
+    /* --- PERBAIKAN RESPONSIVE UNTUK HP --- */
     @media(max-width:768px){
-      .nav-links{display:none;}
+      nav {
+        flex-wrap: wrap; /* Mengizinkan elemen turun ke baris bawah */
+        gap: 1rem;
+      }
+      .nav-links {
+        display: flex; /* Memunculkan menu kembali */
+        width: 100%;
+        justify-content: center; /* Menu di tengah */
+        gap: 1.2rem;
+        order: 3; /* Memaksa menu berada di bawah logo dan tombol WA */
+        margin-top: 0.5rem;
+      }
+      .nav-links a {
+        font-size: 0.75rem; /* Menyesuaikan ukuran font untuk layar kecil */
+      }
       .about-grid{grid-template-columns:1fr;gap:2.5rem;}
       .about-badge{right:1rem;bottom:-1rem;width:90px;height:90px;}
       .about-badge-num{font-size:1.6rem;}
