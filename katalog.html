@@ -105,8 +105,23 @@
     footer{background:var(--deep);color:rgba(250,246,240,.5);text-align:center;padding:2rem 5vw;font-size:.78rem;letter-spacing:.04em;}
     footer a{color:var(--blush);text-decoration:none;}
 
+    /* --- PERBAIKAN RESPONSIVE UNTUK HP --- */
     @media(max-width:768px){
-      .nav-links{display:none;}
+      nav {
+        flex-wrap: wrap; /* Mengizinkan elemen turun ke baris bawah */
+        gap: 1rem;
+      }
+      .nav-links {
+        display: flex; /* Menu muncul kembali */
+        width: 100%;
+        justify-content: center; /* Menu di tengah */
+        gap: 1.2rem;
+        order: 3; /* Memaksa menu berada di bawah logo dan tombol WA */
+        margin-top: 0.5rem;
+      }
+      .nav-links a {
+        font-size: 0.75rem; /* Menyesuaikan ukuran font untuk layar kecil */
+      }
       .catalog-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));}
       .product-img{height:220px;}
     }
@@ -158,9 +173,9 @@
      *
      * Format setiap variasi:
      * {
-     *   nama   : 'Nama Variasi',   // tampil di tombol & label gambar
-     *   gambar : 'image/xxx.jpeg', // gambar untuk variasi ini
-     *   harga  : 85000             // harga dalam Rupiah
+     * nama   : 'Nama Variasi',   // tampil di tombol & label gambar
+     * gambar : 'image/xxx.jpeg', // gambar untuk variasi ini
+     * harga  : 85000             // harga dalam Rupiah
      * }
      *
      * Variasi pertama (index 0) akan aktif secara default.
