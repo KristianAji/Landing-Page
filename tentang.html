@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tentang Kami – Talenta Flower Shop</title>
+  <title>Tentang Kami – Talenta Florist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -18,14 +18,12 @@
     @keyframes navSlide{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:translateY(0)}}
     @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-    /* floating petals */
     .petal{position:fixed;border-radius:50% 0 50% 0;pointer-events:none;animation:drift linear infinite;z-index:0;}
     .petal:nth-child(1){width:60px;height:60px;background:var(--blush);top:-8%;left:8%;animation-duration:20s;animation-delay:0s;opacity:.06;}
     .petal:nth-child(2){width:40px;height:40px;background:var(--rose);top:10%;left:88%;animation-duration:25s;animation-delay:4s;opacity:.06;}
     .petal:nth-child(3){width:80px;height:80px;background:var(--blush);top:40%;left:95%;animation-duration:18s;animation-delay:9s;opacity:.05;}
     @keyframes drift{0%{transform:translateY(-100px) rotate(0deg);}100%{transform:translateY(110vh) rotate(360deg);}}
 
-    /* NAV */
     nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5vw;background:var(--cream);border-bottom:1px solid var(--sand);position:relative;z-index:10;animation:navSlide .7s .1s cubic-bezier(.22,1,.36,1) both;}
     .logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:.04em;color:var(--deep);text-decoration:none;transition:opacity .3s;}
     .logo:hover{opacity:.7;}
@@ -39,23 +37,32 @@
     .btn-primary{background:var(--rose);color:#fff;box-shadow:0 4px 24px rgba(201,122,106,.35);}
     .btn-primary:hover{background:var(--deep);box-shadow:0 6px 32px rgba(61,43,36,.3);transform:translateY(-2px);}
 
-    /* SECTION */
     section{padding:6rem 5vw;position:relative;}
     .section-label{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:.75rem;}
     .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.2;margin-bottom:1rem;}
     .section-title em{font-style:italic;color:var(--rose);}
     .section-desc{max-width:520px;color:var(--muted);line-height:1.9;font-size:.95rem;}
 
-    /* ABOUT */
     .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
     .about-img-wrap{position:relative;}
-    .about-img-placeholder{background:linear-gradient(135deg,var(--sand) 0%,var(--blush) 100%);border-radius:2px 60px 2px 2px;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:4rem;color:rgba(255,255,255,.7);
-      /* image hover tilt */
-      transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s;
-      box-shadow:0 12px 48px rgba(61,43,36,.1);
+    
+    /* --- PERBAIKAN GAMBAR DI SINI --- */
+    .about-img-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 550px; /* Batas tinggi agar tidak satu layar penuh */
+      object-fit: cover; /* Agar gambar tidak gepeng */
+      border-radius: 2px 60px 2px 2px;
+      box-shadow: 0 12px 48px rgba(61,43,36,.1);
+      transition: transform .4s cubic-bezier(.22,1,.36,1);
+      display: block;
     }
-    .about-img-placeholder:hover{transform:rotate(-1.5deg) scale(1.02);box-shadow:0 24px 72px rgba(61,43,36,.18);}
-    .about-badge{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--deep);color:var(--cream);border-radius:50%;width:110px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Cormorant Garamond',serif;
+    .about-img-wrap img:hover {
+      transform: rotate(-1.5deg) scale(1.02);
+    }
+    /* -------------------------------- */
+
+    .about-badge{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--deep);color:var(--cream);border-radius:50%;width:110px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Cormorant Garamond',serif; z-index: 2;
       animation:badgeSpin 1.2s 1s cubic-bezier(.34,1.56,.64,1) both;
     }
     @keyframes badgeSpin{from{opacity:0;transform:scale(.4) rotate(-30deg)}to{opacity:1;transform:scale(1) rotate(0deg)}}
@@ -70,7 +77,6 @@
     .feature-title{font-size:.8rem;font-weight:500;letter-spacing:.04em;margin-bottom:.3rem;}
     .feature-desc{font-size:.75rem;color:var(--muted);line-height:1.6;}
 
-    /* SCROLL REVEAL */
     .reveal{opacity:0;transform:translateY(38px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
     .reveal.visible{opacity:1;transform:translateY(0);}
     .reveal-left{opacity:0;transform:translateX(-48px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
@@ -94,20 +100,20 @@
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
 
   <nav>
-    <a class="logo" href="index.html">Talenta <span>Flower</span></a>
+    <a class="logo" href="index.html">Talenta <span>Florist</span></a>
     <ul class="nav-links">
-      <li><a href="katalog.html">Katalog</a></li>
       <li><a href="tentang.html" class="active">Tentang</a></li>
+      <li><a href="katalog.html">Katalog</a></li>
       <li><a href="pesan.html">Cara Pesan</a></li>
       <li><a href="kontak.html">Kontak</a></li>
     </ul>
-    <a class="btn btn-primary" href="https://wa.me/6282336086339" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-primary" href="https://wa.me/6285233608339" target="_blank">💬 WhatsApp</a>
   </nav>
 
   <section id="tentang">
     <div class="about-grid">
       <div class="about-img-wrap reveal-left">
-        <div class="about-img-placeholder">🌺</div>
+        <img src="image/Talenta.jpeg" alt="Kios Bunga Talenta" />
         <div class="about-badge">
           <span class="about-badge-num">★</span>
           <span class="about-badge-txt">Tomohon<br>Florist</span>
@@ -146,7 +152,7 @@
   </section>
 
   <footer class="reveal">
-    <p>© 2025 <strong style="color:var(--blush)">Kios Bunga Talenta</strong> · Kota Tomohon, Sulawesi Utara</p>
+    <p>© 2026 <strong style="color:var(--blush)">Kios Bunga Talenta</strong> · Kota Tomohon, Sulawesi Utara</p>
     <p style="margin-top:.4rem">Website ini dibuat sebagai bagian dari program digitalisasi UMKM · <a href="https://unsrat.ac.id" target="_blank">Universitas Sam Ratulangi</a></p>
   </footer>
 
